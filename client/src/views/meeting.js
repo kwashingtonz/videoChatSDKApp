@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Grid, Button } from "@material-ui/core"
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -61,7 +62,39 @@ const VideoCall = () => {
   return(
     <>
       <div id="over">
-        
+        <Grid container spacing={2} alignItems="center">
+        <Grid item>
+            <Button
+              size="small"
+              variant="text"
+              color="secondary"
+              // onClick={onLeave}
+            >
+              Back
+            </Button>
+          </Grid>
+        <Grid item>
+            <Button
+              size= "small"
+              variant="text"
+              color= "primary"
+              // onClick={toggleMute}
+            >
+              Copy Meeting ID
+            </Button>
+          </Grid>
+
+          <Grid item>
+            <Button
+              size= "small"
+              variant="text"
+              color= "primary"
+              // onClick={toggleVideoMute}
+            >
+              Copy Meeting Link
+            </Button>
+          </Grid>
+        </Grid>
       </div>
       <div id="videocall"> 
         
