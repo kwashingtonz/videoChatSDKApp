@@ -17,9 +17,9 @@ const VideoCall = () => {
           
           if(res.data.meetingtoken){
             const script = document.createElement("script");
-            script.innerHTML = `window.DailyIframe.createFrame(root,{
+            script.innerHTML = `window.DailyIframe.createFrame(videocall,{
               iframeStyle: {
-                position: "relative",
+                position: "fixed",
                 width: "100%",
                 height: "100%",
                 border: "0",
@@ -36,9 +36,9 @@ const VideoCall = () => {
           }else{
 
             const script = document.createElement("script");
-            script.innerHTML = `window.DailyIframe.createFrame(root,{
+            script.innerHTML = `window.DailyIframe.createFrame(videocall,{
             iframeStyle: {
-              position: "relative",
+              position: "fixed",
               width: "100%",
               height: "100%",
               border: "0",
@@ -58,7 +58,16 @@ const VideoCall = () => {
       .catch((err) => console.log(err));
   }, [roomId]);
 
-  return <div id="videocall" ></div>;
+  return(
+    <>
+      <div id="over">
+        
+      </div>
+      <div id="videocall"> 
+        
+      </div>
+    </>
+  );
 }
 
 export default VideoCall
