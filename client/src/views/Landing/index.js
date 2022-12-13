@@ -46,7 +46,7 @@ const Landing = ({ currentUserId }) => {
 
     return (
       <div className="container">
-      <h2>Meet Your Friends</h2> 
+      <h2>Video Call App</h2> 
          <input type="text" placeholder="Enter Room Code" onChange={(e) =>setRoomId(e.target.value)}/>
 
           <button type="submit" onClick={joinCreateRoom}>

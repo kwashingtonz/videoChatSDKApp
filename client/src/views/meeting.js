@@ -7,6 +7,22 @@ const VideoCall = () => {
 
   const {roomId} = useParams();
 
+  const url = 'http://localhost:3000/room/';
+  const handleCopy=()=>{
+       navigator.clipboard.writeText(roomId)
+       alert("copied")
+  }
+
+  const CopyUrl=()=>{
+    navigator.clipboard.writeText(url+roomId)
+    alert("copied")
+}
+
+  const onLeave=()=>{
+    window.localStorage.clear();
+    window.location.href = '/landing';
+  }
+
   useEffect(() => {
     const domain = "https://videochattestalpha.daily.co/";
 
@@ -31,7 +47,7 @@ const VideoCall = () => {
             }).join({
               url: "${domain}${roomId}?t=${res.data.meetingtoken.token}",
             });`;
-
+            
             document.body.appendChild(script);
 
           }else{
@@ -68,7 +84,7 @@ const VideoCall = () => {
               size="small"
               variant="text"
               color="secondary"
-              // onClick={onLeave}
+              onClick={onLeave}
             >
               Back
             </Button>
@@ -78,7 +94,7 @@ const VideoCall = () => {
               size= "small"
               variant="text"
               color= "primary"
-              // onClick={toggleMute}
+              onClick={handleCopy}
             >
               Copy Meeting ID
             </Button>
@@ -89,7 +105,7 @@ const VideoCall = () => {
               size= "small"
               variant="text"
               color= "primary"
-              // onClick={toggleVideoMute}
+              onClick={CopyUrl}
             >
               Copy Meeting Link
             </Button>
